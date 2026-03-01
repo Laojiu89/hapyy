@@ -14,16 +14,12 @@ bash <(curl -sL https://raw.githubusercontent.com/Laojiu89/hapyy/main/Squid)
 ```
 ---
 
-### 3. Xray (多协议引擎)
+### 3. Xray和Shadowsocks 2022 (多协议引擎)
 ```bash
 wget https://raw.githubusercontent.com/Laojiu89/hapyy/main/xray -O xray_install.sh && chmod +x xray_install.sh && ./xray_install.sh
 ```
 ---
 
-### 4. Shadowsocks 2022 (安全加密)
-```bash
-wget https://raw.githubusercontent.com/Laojiu89/hapyy/main/Shadowsocks2022 -O ss2022_install.sh && chmod +x ss2022_install.sh && ./ss2022_install.sh
-```
 ### 5. nftables(一键脚本转发）
 ```bash
 wget -O nftmgr https://raw.githubusercontent.com/Laojiu89/hapyy/main/nftables && chmod +x nftmgr && ./nftmgr
