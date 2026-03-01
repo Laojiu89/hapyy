@@ -8,7 +8,6 @@
 bash <(curl -sL https://raw.githubusercontent.com/Laojiu89/hapyy/main/Tinyproxy)
 ```
 ### 2. Squid (一键安装挂HTTP脚本)
-> 点击下方代码框即可快速选中复制
 ```bash
 bash <(curl -sL https://raw.githubusercontent.com/Laojiu89/hapyy/main/Squid)
 ```
