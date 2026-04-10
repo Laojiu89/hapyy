@@ -31,7 +31,4 @@ curl -sL https://raw.githubusercontent.com/Laojiu89/hapyy/main/SSL -o tinyproxy_
 ```bash
 apt update -y && apt install -y curl && apt install -y socat
 ```
-### 7. 一键安装Koipy机器人脚本命令
-```bash
-curl -sSL https://raw.githubusercontent.com/Laojiu89/hapyy/refs/heads/main/koipy-docker.sh -o koipy-docker.sh && chmod +x koipy-docker.sh && bash koipy-docker.sh
-```
+
