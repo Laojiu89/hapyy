@@ -31,4 +31,7 @@ curl -sL https://raw.githubusercontent.com/Laojiu89/hapyy/main/SSL -o tinyproxy_
 ```bash
 apt update -y && apt install -y curl && apt install -y socat
 ```
-
+### 8. 一键安装Sing-Box Hysteria2 & Reality 快速配置脚本
+```bash
+bash <(curl -sL https://raw.githubusercontent.com/Laojiu89/hapyy/refs/heads/main/Sing-Box)
+```
