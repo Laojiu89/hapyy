@@ -35,16 +35,10 @@ jobs:
           gzip -d mihomo.gz
           chmod +x mihomo
           sudo mv mihomo /usr/local/bin/mihomo
-          echo "✅ mihomo installed successfully."
+          echo "✅ mihomo installed: $(mihomo version)"
 
       - name: Convert YAML to MRS
         run: |
-          # 增加防错机制：如果文件被删除了，直接安全退出，不阻塞也不报错
-          if [ ! -f "rules/rules.yaml" ]; then
-            echo "⚠️ rules/rules.yaml 不存在，可能已被删除。跳过本次转换。"
-            exit 0
-          fi
-
           mkdir -p ruleset
           mihomo convert-ruleset domain yaml rules/rules.yaml ruleset/rules.mrs
           echo "✅ Conversion completed: ruleset/rules.mrs"
@@ -55,17 +49,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
-          # 确保文件存在再检查 diff，防止初次创建或意外丢失时报错
-          if [ -f "ruleset/rules.mrs" ] && git diff --quiet ruleset/rules.mrs; then
+          if git diff --quiet ruleset/rules.mrs; then
             echo "No changes to commit."
           else
-            git add ruleset/rules.mrs 2>/dev/null || true
-            # 只有当确实有东西可以 commit 时才执行
-            if ! git diff --cached --quiet; then
-              git commit -m "chore: update rules.mrs via GitHub Actions [$(date +'%Y-%m-%d %H:%M')]"
-              git push
-              echo "✅ rules.mrs updated and pushed."
-            else
-              echo "Nothing to commit."
-            fi
+            git add ruleset/rules.mrs
+            git commit -m "chore: update rules.mrs via GitHub Actions [$(date +'%Y-%m-%d %H:%M')]"
+            git push
+            echo "✅ rules.mrs updated and pushed."
           fi
