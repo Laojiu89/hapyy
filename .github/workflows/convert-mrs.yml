@@ -19,7 +19,7 @@ jobs:
 
       - name: Install mihomo (latest)
         run: |
-          # 1. 直接用 GitHub API 锁定官方最新的版本号和下载链接
+          # 1. 自动获取官方最新版的下载链接
           MIHOMO_URL=$(curl -s https://api.github.com/repos/MetaCubeX/mihomo/releases/latest \
             | jq -r '.assets[] | select(.name | test("mihomo-linux-amd64.*\\.gz$")) | .browser_download_url' \
             | head -n 1)
@@ -30,17 +30,20 @@ jobs:
           fi
           
           echo "📥 Downloading latest from: $MIHOMO_URL"
-          # 2. 下载并解压
           curl -L -o mihomo.gz "$MIHOMO_URL"
           gzip -d mihomo.gz
-          chmod +x mihomo
-          sudo mv mihomo /usr/local/bin/mihomo
+          
+          # 【核心修复】不管解压出来叫什么，统一强制重命名为 /usr/local/bin/mihomo
+          chmod +x mihomo-linux-amd64*
+          sudo mv mihomo-linux-amd64* /usr/local/bin/mihomo
+          
           echo "✅ mihomo installed: $(mihomo version)"
 
       - name: Convert YAML to MRS
         run: |
           mkdir -p ruleset
-          mihomo convert-ruleset domain yaml rules/rules.yaml ruleset/rules.mrs
+          # 使用兼容性更好、支持各种规则类型的编译命令
+          mihomo ruleset compile rules/rules.yaml ruleset/rules.mrs
           echo "✅ Conversion completed: ruleset/rules.mrs"
 
       - name: Commit and Push changes
