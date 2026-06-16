@@ -19,8 +19,7 @@ jobs:
 
       - name: Install mihomo (latest)
         run: |
-          sudo apt-get update && sudo apt-get install -y jq curl
-          
+          # 1. 直接用 GitHub API 锁定官方最新的版本号和下载链接
           MIHOMO_URL=$(curl -s https://api.github.com/repos/MetaCubeX/mihomo/releases/latest \
             | jq -r '.assets[] | select(.name | test("mihomo-linux-amd64.*\\.gz$")) | .browser_download_url' \
             | head -n 1)
@@ -30,7 +29,8 @@ jobs:
             exit 1
           fi
           
-          echo "📥 Downloading from: $MIHOMO_URL"
+          echo "📥 Downloading latest from: $MIHOMO_URL"
+          # 2. 下载并解压
           curl -L -o mihomo.gz "$MIHOMO_URL"
           gzip -d mihomo.gz
           chmod +x mihomo
@@ -42,7 +42,6 @@ jobs:
           mkdir -p ruleset
           mihomo convert-ruleset domain yaml rules/rules.yaml ruleset/rules.mrs
           echo "✅ Conversion completed: ruleset/rules.mrs"
-          ls -lh ruleset/rules.mrs
 
       - name: Commit and Push changes
         run: |
