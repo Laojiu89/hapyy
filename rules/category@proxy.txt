@@ -1,54 +1,41 @@
-# =========================
-# VIU / Vuclip
-# =========================
-DOMAIN-SUFFIX,viu.com
-DOMAIN-SUFFIX,viu.tv
-DOMAIN-SUFFIX,viu.now.com
-DOMAIN-SUFFIX,vuclip.com
 
-# =========================
-# TVB / MyTV Super
-# =========================
-DOMAIN-SUFFIX,tvb.com
-DOMAIN-SUFFIX,tvb.com.hk
-DOMAIN-SUFFIX,mytvsuper.com
-DOMAIN-SUFFIX,tvbvideo.com
-DOMAIN-SUFFIX,tvbcoding.com
-DOMAIN-SUFFIX,tvbdo.com
+viu.com
+viu.tv
+viu.now.com
+vuclip.com
 
-# =========================
-# 台湾 OTT
-# =========================
-DOMAIN-SUFFIX,linetv.tw
-DOMAIN-SUFFIX,kktv.me
-DOMAIN-SUFFIX,litv.tv
-DOMAIN-SUFFIX,hwtv.tv
-DOMAIN-SUFFIX,taiwangood.tv
+tvb.com
+tvb.com.hk
+mytvsuper.com
+tvbvideo.com
+tvbcoding.com
+tvbdo.com
 
-# =========================
-# 统计 / 追踪
-# =========================
-DOMAIN-SUFFIX,omtrdc.net
 
-# =========================
-# WILDCARD FULL COVERAGE
-# =========================
-DOMAIN,*.viu.com
-DOMAIN,*.viu.tv
-DOMAIN,*.viu.now.com
-DOMAIN,*.vuclip.com
+linetv.tw
+kktv.me
+litv.tv
+hwtv.tv
+taiwangood.tv
 
-DOMAIN,*.tvb.com
-DOMAIN,*.tvb.com.hk
-DOMAIN,*.mytvsuper.com
-DOMAIN,*.tvbvideo.com
-DOMAIN,*.tvbcoding.com
-DOMAIN,*.tvbdo.com
+omtrdc.net
 
-DOMAIN,*.linetv.tw
-DOMAIN,*.kktv.me
-DOMAIN,*.litv.tv
-DOMAIN,*.hwtv.tv
-DOMAIN,*.taiwangood.tv
+*.viu.com
+*.viu.tv
+*.viu.now.com
+*.vuclip.com
 
-DOMAIN,*.omtrdc.net
+*.tvb.com
+*.tvb.com.hk
+*.mytvsuper.com
+*.tvbvideo.com
+*.tvbcoding.com
+*.tvbdo.com
+
+*.linetv.tw
+*.kktv.me
+*.litv.tv
+*.hwtv.tv
+*.taiwangood.tv
+
+*.omtrdc.net
