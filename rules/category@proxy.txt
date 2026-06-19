@@ -1,40 +1,15 @@
-+.hwtv.tv
-+.taiwangood.tv
-
-ntdfreemobile-tgc.cdn.hinet.net
-ntdfreepc-tgc.cdn.hinet.net
-ntdfreetv-tgc.cdn.hinet.net
-ntdfreevcpc-tgc.cdn.hinet.net
-ntdofifreemobile-tgc.cdn.hinet.net
-ntdofifreepc-tgc.cdn.hinet.net
-ntdofifreetv-tgc.cdn.hinet.net
-ntdofifreevcpc-tgc.cdn.hinet.net
-+.litv.tv
-+.ofiii.com
-+.litvfreepc.akamaized.net
-
-+.omtrdc.net
-+.kktv.me
-+.kktv.com.tw
-+.theater-kktv.cdn.hinet.net
-
-- api.viu.now.com
-- dfp6rglgjqszk.cloudfront.net
-- d1k2us671qcoau.cloudfront.net
-- d2anahhhmp1ffz.cloudfront.net
-- +.viu.tv
-- +.viu.com
-
-+.tvbweekly.com
-+.bigbigshop.com
-+.encoretvb.com
-+.tvb.com
-+.tvbanywhere.com
-+.tvbusa.com
-+.mytvsuper.com
-+.tvb.com.au
-+.tvbanywhere.com.sg
-+.tvbeventpower.com.hk
-+.bigbigchannel.com.hk
-+.tvmedia.net.au
-+.tvbc.com.cn
+- '+.api.linetv.tw'
+- '+.img.linetv.tw'
+- '+.in-stream.linetv.tw'
+- '+.linetv.com'
+- '+.linetvhelp.zendesk.com'
+- '+.smartdata1.linetv.tw'
+- '+.static-img.linetv.tw'
+- '+.static.linetv.tw'
+- '+.web-static.linetv.tw'
+- '+.www.linetv.tw'
+- '+.api.viu.tv'
+- '+.static.viu.tv'
+- '+.viu.tv'
+- '+.www.viu.com'
+- '+.www.mytvsuper.com'
