@@ -1,1 +1,54 @@
-+.asuswrt-merlin.net
+# =========================
+# VIU / Vuclip
+# =========================
+DOMAIN-SUFFIX,viu.com
+DOMAIN-SUFFIX,viu.tv
+DOMAIN-SUFFIX,viu.now.com
+DOMAIN-SUFFIX,vuclip.com
+
+# =========================
+# TVB / MyTV Super
+# =========================
+DOMAIN-SUFFIX,tvb.com
+DOMAIN-SUFFIX,tvb.com.hk
+DOMAIN-SUFFIX,mytvsuper.com
+DOMAIN-SUFFIX,tvbvideo.com
+DOMAIN-SUFFIX,tvbcoding.com
+DOMAIN-SUFFIX,tvbdo.com
+
+# =========================
+# 台湾 OTT
+# =========================
+DOMAIN-SUFFIX,linetv.tw
+DOMAIN-SUFFIX,kktv.me
+DOMAIN-SUFFIX,litv.tv
+DOMAIN-SUFFIX,hwtv.tv
+DOMAIN-SUFFIX,taiwangood.tv
+
+# =========================
+# 统计 / 追踪
+# =========================
+DOMAIN-SUFFIX,omtrdc.net
+
+# =========================
+# WILDCARD FULL COVERAGE
+# =========================
+DOMAIN,*.viu.com
+DOMAIN,*.viu.tv
+DOMAIN,*.viu.now.com
+DOMAIN,*.vuclip.com
+
+DOMAIN,*.tvb.com
+DOMAIN,*.tvb.com.hk
+DOMAIN,*.mytvsuper.com
+DOMAIN,*.tvbvideo.com
+DOMAIN,*.tvbcoding.com
+DOMAIN,*.tvbdo.com
+
+DOMAIN,*.linetv.tw
+DOMAIN,*.kktv.me
+DOMAIN,*.litv.tv
+DOMAIN,*.hwtv.tv
+DOMAIN,*.taiwangood.tv
+
+DOMAIN,*.omtrdc.net
