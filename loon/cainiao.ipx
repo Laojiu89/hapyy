@@ -1,0 +1,54 @@
+#!name=菜鸟去广告
+#!desc=菜鸟 App 专用版：拦截 App 首页广告、大家都在逛、组件推荐、埋点日志，不包含支付宝小程序规则
+#!openUrl=https://apps.apple.com/app/id951610982
+#!author=1030695584
+#!tag=去广告
+#!loon_version=3.2.4
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Cainiao.png
+
+[Rule]
+# 菜鸟 App 日志 / 埋点
+DOMAIN,h-adashx.ut.cainiao.com,REJECT
+DOMAIN,cainiao-app-logs.cn-zhangjiakou.log.aliyuncs.com,REJECT
+
+# 菜鸟 App 首页「大家都在逛」组件源，截图中实际出现
+DOMAIN,guoguouser.cainiao.com,REJECT
+
+[Rewrite]
+# 菜鸟 App：amdc 调度
+^http?:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch.* reject
+
+# 菜鸟 App 首页：好物推荐 / 商品推广 / 底部标签页 / 快递详情页 / 问卷调查 / 主页图标
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.adkeyword\.get\.cn reject-dict
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.cncommunity\.my\.station\.query\.cn reject-dict
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.(batch\.show\.v2|index)\.cn reject-dict
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.m?show\.cn reject-200
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\..* reject-200
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbopen\.miniapp\.recommend\.cpc\.cn reject-dict
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbmensa\.research\.researchservice\.(acquire|event|close|consultmerge)\.cn reject-dict
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(homepage\.merge|tabbar\.marketing)\.get\.cn reject-dict
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(pickup\.empty\.page|protocol\.homepage)\.get\.cn reject-dict
+
+# 菜鸟 App：首页底部商品推广 / 底部角标
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbcps\.presentation\.fetch\.cn reject-200
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.app\.home\.v\d+\.bottom\.area reject-200
+
+# 菜鸟 App：「大家都在逛」瀑布流 / 首页商品组件
+^https?:\/\/guoguouser\.cainiao\.com\/.* reject-200
+^https?:\/\/guoguouser\.cainiao\.com\/.*(?:widget|Widget|recommend|promotion|marketing|ad|ads|item|goods|product).* reject-200
+^https?:\/\/guoguouser\.cainiao\.com\/com\.cainiao\.guoguo\.guoguouser\.widget\..* reject-200
+^https?:\/\/guoguouser\.cainiao\.com\/com\.cainiao\.guoguo\.guogouser\.widget\..* reject-200
+
+# 菜鸟 App：日志 / 埋点上传
+^https?:\/\/h-adashx\.ut\.cainiao\.com\/upload reject
+
+# 菜鸟 App：消息中心
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.nbfriend\.message\.conversation\.list\.cn reject-dict
+
+# 菜鸟 App：发现页数字角标 / 裹裹券
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.com\.cainiao\.cnactivitycenter reject-dict
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.com\.cainiao\.cncreditmarket\.hit\.getactivityhit\.cn reject-dict
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.com\.cainiao\.longquan\.place\.getpageresourcecontent\.cn reject-dict
+
+[MitM]
+hostname = cn-acs.m.cainiao.com, guoguouser.cainiao.com, h-adashx.ut.cainiao.com, amdc.m.taobao.com
