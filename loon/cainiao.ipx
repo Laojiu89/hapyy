@@ -1,7 +1,6 @@
 #!name=菜鸟去广告
 #!desc=菜鸟 App 专用版：拦截 App 首页广告、大家都在逛、组件推荐、埋点日志，不包含支付宝小程序规则
-#!openUrl=https://apps.apple.com/app/id951610982
-#!author=1030695584
+#!author=laojiu
 #!tag=去广告
 #!loon_version=3.2.4
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Cainiao.png
