@@ -38,7 +38,7 @@ Speedtest = select,默认代理,全球手动节点,url = http://www.gstatic.com/
 GitHub = select,默认代理,自动选择,香港自动策略,台湾自动策略,日本自动策略,韩国自动策略,美国自动策略,新加坡自动策略,img-url = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/GitHub.png
 Cloudflare = select,默认代理,自动选择,日本手动节点,台湾手动节点,香港手动节点,韩国手动节点,美国手动节点,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Cloudflare.png
 Instagram = select,默认代理,自动选择,香港自动策略,日本自动策略,美国自动策略,新加坡自动策略,url = http://www.gstatic.com/generate_204,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Instagram-02.png
-Tiktok = select,默认代理,自动选择,美国手动节点,日本手动节点,台湾手动节点,新加坡手动节点,url = http://www.gstatic.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok_1.png
+Tiktok = select,默认代理,自动选择,美国手动节点,日本手动节点,台湾手动节点,新加坡手动节点,,台湾自动策略,日本自动策略,美国自动策略,新加坡自动策略,url = http://www.gstatic.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok_1.png
 Twitter = select,默认代理,自动选择,香港自动策略,台湾自动策略,日本自动策略,美国自动策略,新加坡自动策略,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
 Whatsapp = select,默认代理,自动选择,香港自动策略,台湾自动策略,日本自动策略,美国自动策略,新加坡自动策略,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/WeChat.png
 Facebook = select,默认代理,自动选择,香港自动策略,台湾自动策略,日本自动策略,美国自动策略,新加坡自动策略,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Facebook.png
