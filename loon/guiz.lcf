@@ -4,7 +4,7 @@
 
 [General]
 ip-mode = dual
-ipv6-vif = off
+ipv6-vif = auto
 dns-server = 223.5.5.5,119.29.29.29
 doh-server = https://dns.alidns.com/dns-query,https://doh.pub/dns-query
 doh3-server = h3://cloudflare-dns.com/dns-query
@@ -43,9 +43,9 @@ Twitter = select,默认代理,自动选择,香港自动策略,台湾自动策略
 Whatsapp = select,默认代理,自动选择,香港自动策略,台湾自动策略,日本自动策略,美国自动策略,新加坡自动策略,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/WeChat.png
 Facebook = select,默认代理,自动选择,香港自动策略,台湾自动策略,日本自动策略,美国自动策略,新加坡自动策略,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Facebook.png
 电报消息 = select,默认代理,自动选择,香港自动策略,日本自动策略,美国自动策略,新加坡自动策略,url = http://www.gstatic.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
-Gemin = select,默认代理,美国手动节点,日本手动节点,台湾手动节点,新加坡手动节点,img-url = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/GoogleGemini.png
-ChatGPT = select,默认代理,故障转移,美国手动节点,日本手动节点,台湾手动节点,新加坡手动节点,img-url = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ChatGPT.png
-人工智能 = select,默认代理,故障转移,日本手动节点,美国手动节点,台湾手动节点,韩国手动节点,新加坡手动节点,url = http://www.gstatic.com/generate_204,img-url = https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/ChatGPT3.png
+Gemin = select,故障转移,美国手动节点,日本手动节点,台湾手动节点,新加坡手动节点,日本自动策略,美国自动策略,新加坡自动策略,img-url = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/GoogleGemini.png
+ChatGPT = select,故障转移,美国手动节点,日本手动节点,台湾手动节点,新加坡手动节点,日本自动策略,美国自动策略,新加坡自动策略,img-url = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ChatGPT.png
+人工智能 = select,故障转移,日本手动节点,美国手动节点,台湾手动节点,韩国手动节点,新加坡手动节点,日本自动策略,美国自动策略,新加坡自动策略,url = http://www.gstatic.com/generate_204,img-url = https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/ChatGPT3.png
 Google = select,默认代理,自动选择,香港自动策略,台湾自动策略,日本自动策略,韩国自动策略,美国自动策略,新加坡自动策略,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
 YouTube = select,默认代理,香港手动节点,台湾手动节点,日本手动节点,韩国手动节点,美国手动节点,新加坡手动节点,url = http://www.gstatic.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
 Talkatone = select,美国手动节点,美国自动策略,img-url = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Talkatone.png
