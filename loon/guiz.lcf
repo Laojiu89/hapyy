@@ -116,7 +116,6 @@ https://kelee.one/Tool/Loon/Lsr/REGION_SPLITTER.lsr, policy=DIRECT, tag=geoip, e
 https://github.com/VirgilClyne/GetSomeFries/raw/main/plugin/HTTPDNS.Block.plugin, enabled=true
 https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, enabled=true
 https://github.com/Moli-X/Tool/raw/X/Loon/Plugin/Kelee/General.plugin, tag=配置增强, enabled=true
-https://github.com/Moli-X/Resources/raw/main/Loon/Collection.plugin, enabled=true
 https://ddgksf2013.top/module/ScriptHub.Loon.plugin, enabled=true
 https://kelee.one/Tool/Loon/Lpx/PinDuoDuo_remove_ads.lpx, enabled=true
 http://script.hub/file/_start_/https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/CainiaoAds.conf/_end_/CainiaoAds.sgmodule?type=qx-rewrite&n=%E8%8F%9C%E9%B8%9F%E8%A3%B9%E8%A3%B9%E5%8E%BB%E5%B9%BF%E5%91%8A%40ddgksf2013+%E5%BA%94%E7%94%A8%E5%87%80%E5%8C%96&headers=User-Agent:surge&del=true&jqEnabled=true&target=loon-plugin&category=ddgksf2013, img-url=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Cainiao.png, enabled=true
