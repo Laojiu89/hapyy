@@ -1,7 +1,7 @@
 #laojiu
 #Date: 2026.10.04
 #Author: Loon
-#将[Proxy Group]配置文件中十七处 （winfi名称） 文本全部替换成你的路由器Wi-Fi名称；
+#将[Proxy Group]配置文件中十七处 （520） 文本全部替换成你的路由器Wi-Fi名称；
 #将[Host]配置文件中的一处 10.0.0.1 文本替换成你的路由器的管理IP；
 
 [General]
@@ -65,35 +65,35 @@ Talkatone = select,美国手动场景,美国自动场景,img-url = https://raw.g
 美国节点 = select,美国,url = http://www.gstatic.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
 新加坡节点 = select,新加坡,url = http://www.gstatic.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
 全球手动节点 = select,全球节点,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
-香港手动场景 = ssid,default=香港节点,cellular=香港节点,"wifi名称"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/HK.png
-台湾手动场景 = ssid,default=台湾节点,cellular=台湾节点,"wifi名称,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TW.png
-日本手动场景 = ssid,default=日本节点,cellular=日本节点,"wifi名称"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/JP.png
-韩国手动场景 = ssid,default=韩国节点,cellular=韩国节点,"wifi名称"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/KR.png
-美国手动场景 = ssid,default=美国节点,cellular=美国节点,"wifi名称"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/US.png
-新加坡手动场景 = ssid,default=新加坡节点,cellular=新加坡节点,"wifi名称"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/SG.png
-全球手动场景 = ssid,default=全球手动节点,cellular=全球手动节点,"wifi名称"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
+香港手动场景 = ssid,default=香港节点,cellular=香港节点,"520"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/HK.png
+台湾手动场景 = ssid,default=台湾节点,cellular=台湾节点,"520"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TW.png
+日本手动场景 = ssid,default=日本节点,cellular=日本节点,"520"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/JP.png
+韩国手动场景 = ssid,default=韩国节点,cellular=韩国节点,"520"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/KR.png
+美国手动场景 = ssid,default=美国节点,cellular=美国节点,"520"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/US.png
+新加坡手动场景 = ssid,default=新加坡节点,cellular=新加坡节点,"520"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/SG.png
+全球手动场景 = ssid,default=全球手动节点,cellular=全球手动节点,"520"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
 香港自动策略 = url-test,香港,interval = 600,tolerance = 50,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/HK.png
 台湾自动策略 = url-test,台湾,interval = 600,tolerance = 50,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TW.png
 日本自动策略 = url-test,日本,interval = 600,tolerance = 50,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/JP.png
 韩国自动策略 = url-test,韩国,interval = 600,tolerance = 50,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/KR.png
 美国自动策略 = url-test,美国,interval = 600,tolerance = 50,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/US.png
 新加坡自动策略 = url-test,新加坡,interval = 600,tolerance = 50,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/SG.png
-香港自动场景 = ssid,default=香港自动策略,cellular=香港自动策略,"wifi名称"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/HK.png
-台湾自动场景 = ssid,default=台湾自动策略,cellular=台湾自动策略,"wifi名称"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TW.png
-日本自动场景 = ssid,default=日本自动策略,cellular=日本自动策略,"wifi名称"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/JP.png
-韩国自动场景 = ssid,default=韩国自动策略,cellular=韩国自动策略,"wifi名称"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/KR.png
-美国自动场景 = ssid,default=美国自动策略,cellular=美国自动策略,"wifi名称"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/US.png
-新加坡自动场景 = ssid,default=新加坡自动策略,cellular=新加坡自动策略,"wifi名称"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/SG.png
+香港自动场景 = ssid,default=香港自动策略,cellular=香港自动策略,"520"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/HK.png
+台湾自动场景 = ssid,default=台湾自动策略,cellular=台湾自动策略,"520"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TW.png
+日本自动场景 = ssid,default=日本自动策略,cellular=日本自动策略,"520"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/JP.png
+韩国自动场景 = ssid,default=韩国自动策略,cellular=韩国自动策略,"520"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/KR.png
+美国自动场景 = ssid,default=美国自动策略,cellular=美国自动策略,"520"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/US.png
+新加坡自动场景 = ssid,default=新加坡自动策略,cellular=新加坡自动策略,"520"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/SG.png
 美国故障策略 = fallback,美国,interval = 600,max-timeout = 3000,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/US.png
 日本故障策略 = fallback,日本,interval = 600,max-timeout = 3000,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/JP.png
 香港故障策略 = fallback,香港,interval = 600,max-timeout = 3000,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/HK.png
 台湾故障策略 = fallback,台湾,interval = 600,max-timeout = 3000,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/CN.png
 新加坡故障策略 = fallback,新加坡,interval = 600,max-timeout = 3000,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/SG.png
-美国故障场景 = ssid,default=美国故障策略,cellular=美国故障策略,"wifi名称"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/US.png
-日本故障场景 = ssid,default=日本故障策略,cellular=日本故障策略,"wifi名称"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/JP.png
-香港故障场景 = ssid,default=香港故障策略,cellular=香港故障策略,"wifi名称"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/HK.png
-台湾故障场景 = ssid,default=台湾故障策略,cellular=台湾故障策略,"wifi名称"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TW.png
-新加坡故障场景 = ssid,default=新加坡故障策略,cellular=新加坡故障策略,"wifi名称"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/SG.png
+美国故障场景 = ssid,default=美国故障策略,cellular=美国故障策略,"520"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/US.png
+日本故障场景 = ssid,default=日本故障策略,cellular=日本故障策略,"520"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/JP.png
+香港故障场景 = ssid,default=香港故障策略,cellular=香港故障策略,"520"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/HK.png
+台湾故障场景 = ssid,default=台湾故障策略,cellular=台湾故障策略,"520"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TW.png
+新加坡故障场景 = ssid,default=新加坡故障策略,cellular=新加坡故障策略,"520"=DIRECT,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/SG.png
 
 [Remote Filter]
 香港 = NameRegex, FilterKey = "(?i)(港|HK|Hong)"
@@ -141,7 +141,7 @@ https://kelee.one/Tool/Loon/Lsr/REGION_SPLITTER.lsr, policy=DIRECT, tag=geoip, e
 
 [Host]
 # 改自己的wifi名称和谁解析DNS的路由器IP
-ssid:wifi名称 = server:10.0.0.1
+ssid:520 = server:10.0.0.1
 [Rewrite]
 
 
