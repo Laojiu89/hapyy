@@ -45,7 +45,7 @@ Cloudflare = select,默认代理,香港自动场景,台湾自动场景,日本自
 Instagram = select,默认代理,香港自动场景,台湾自动场景,日本自动场景,韩国自动场景,美国自动场景,新加坡自动场景,url = http://www.gstatic.com/generate_204,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Instagram-02.png
 Tiktok = select,默认代理,台湾手动场景,日本手动场景,韩国手动场景,美国手动场景,新加坡手动场景,url = http://www.gstatic.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok_1.png
 Twitter = select,默认代理,香港自动场景,台湾自动场景,日本自动场景,韩国自动场景,美国自动场景,新加坡自动场景,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
-Whatsapp = select,默认代理,香港自动场景,台湾自动场景,日本自动场景,韩国自动场景,美国自动场景,新加坡自动场景,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/WeChat.png
+Whatsapp = select,默认代理,香港自动场景,台湾自动场景,日本自动场景,韩国自动场景,美国自动场景,新加坡自动场景,img-url = https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/04ProxySoft/whatsapp(1).png
 Facebook = select,默认代理,香港自动场景,台湾自动场景,日本自动场景,韩国自动场景,美国自动场景,新加坡自动场景,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Facebook.png
 电报消息 = select,默认代理,香港自动场景,日本自动场景,美国自动场景,新加坡自动场景,url = http://www.gstatic.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
 AppleAi = select,美国手动场景,美国自动策略,美国故障场景,img-url = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Adobe_Creative_Cloud.png
