@@ -29,7 +29,7 @@ jobs:
         id: mihomo
         run: |
           i=0
-          while [ "$i" -lt 750 ]; do
+          while [ "$i" -lt 75 ]; do
             i=$((i + 1))
             JSON=$(curl -s https://api.github.com/repos/metacubex/mihomo/releases/latest)
             TAG=$(echo "$JSON" | jq -r '.tag_name // empty')
