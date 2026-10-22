@@ -1,0 +1,219 @@
+name: UPX Compress mihomo (linux-arm)
+
+on:
+  workflow_dispatch:              # 手动触发
+
+permissions:
+  contents: write
+
+jobs:
+  upx-and-upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 当前仓库
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 安装工具 (jq / upx / gzip)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq upx gzip
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      # ---------- 1. 获取 mihomo 最新 tag（tag 为 null/空 重新获取） ----------
+      - name: 获取 mihomo 最新 tag
+        id: mihomo
+        run: |
+          i=0
+          while [ "$i" -lt 750 ]; do
+            i=$((i + 1))
+            JSON=$(curl -s https://api.github.com/repos/metacubex/mihomo/releases/latest)
+            TAG=$(echo "$JSON" | jq -r '.tag_name // empty')
+            # 处理 tag 为 null / 空 的情况
+            if [ -n "$TAG" ] && [ "$TAG" != "null" ]; then
+              echo "$JSON" > mihomo-latest.json
+              echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+              echo "✅ 检测到 mihomo 最新版本: $TAG"
+              exit 0
+            fi
+            echo "⚠ 第 $i 次获取为空，10s 后重试..."
+            sleep 10
+          done
+
+      # ---------- 2. 判断当前仓库是否已存在该 tag 并 按需推送 tag ----------
+      - name: 检查当前仓库是否已存在该 tag
+        id: check
+        run: |
+          TAG="${{ steps.mihomo.outputs.tag }}"
+          # 处理 tag 为 null / 空 的情况
+          if [ -z "$TAG" ] || [ "$TAG" = "null" ]; then
+            echo "already=skip" >> "$GITHUB_OUTPUT"
+            echo "✅ tag 为空或 null，跳过本次全部任务"
+            exit 0
+          fi
+          # 查询当前仓库是否已存在同名的 tag 并按需推送 tag
+          EXISTS=$(git ls-remote --tags origin "refs/tags/$TAG" | grep -c "refs/tags/$TAG" || true)
+          if [ "$EXISTS" -ge 1 ]; then
+            echo "already=$TAG" >> "$GITHUB_OUTPUT"
+            echo "✅ tag $TAG 已存在于当前仓库，跳过本次任务"
+          else
+            git tag "$TAG"
+            git push origin "refs/tags/$TAG"
+            echo "created=yes" >> "$GITHUB_OUTPUT"
+            echo "✅ 已推送 tag $TAG"
+          fi
+
+      # ---------- 3. 拉取 mihomo 源码 ----------
+      - name: 拉取 mihomo 源码
+        if: steps.check.outputs.already == ''
+        run: |
+          TAG="${{ steps.mihomo.outputs.tag }}"
+          git clone --depth 1 --branch "$TAG" https://github.com/MetaCubeX/mihomo.git src
+          # 若你想按需切到特定上游版本，可改用：
+          # git clone --depth 1 --branch <tag> https://github.com/MetaCubeX/mihomo.git src
+          ls -la src/ | head
+          test -f src/go.mod && echo "✅ 源码就绪 (go.mod 存在)" || { echo "❌ 未找到 go.mod"; exit 1; }
+
+      # ---------- 4. 安装 Go ----------
+      - name: 安装 Go
+        if: steps.check.outputs.already == ''
+        uses: actions/setup-go@v7
+        with:
+          go-version: 'stable'
+          cache-dependency-path: src/go.sum
+
+      # ---------- 5. 修改内核内嵌的更新检查地址 ----------
+      - name: 修改内核内嵌的更新检查地址
+        if: steps.check.outputs.already == ''
+        run: |
+          FILE="$(pwd)/src/component/updater/update_core.go"
+          OLD="https://github.com/MetaCubeX/mihomo/releases/latest/download/"
+          NEW="${{ github.server_url }}/${{ github.repository }}/releases/latest/download/"
+          if [ ! -f "$FILE" ]; then
+            echo "❌ 未找到 $FILE，请确认源码结构"
+            exit 1
+          fi
+          echo "🔍 替换前匹配："
+          grep -n "$OLD" "$FILE" || { echo "❌ 未匹配到旧地址，终止"; exit 1; }
+          sed -i "s#${OLD}#${NEW}#g" "$FILE"
+          echo "✅ 替换后校验："
+          grep -n "${{ github.repository }}" "$FILE" || { echo "❌ 替换未生效"; exit 1; }
+          if grep -nq "$OLD" "$FILE"; then
+            echo "❌ 仍残留旧地址"
+            exit 1
+          fi
+          echo "✅ 更新检查地址已改为 ${{ github.repository }}"
+
+      # ---------- 6. 自编译 linux-arm 二进制（arm64/armv5/armv6/armv7） ----------
+      - name: 编译 linux-arm 二进制
+        id: build
+        if: steps.check.outputs.already == ''
+        run: |
+          TAG="${{ steps.mihomo.outputs.tag }}"
+          mkdir -p dist
+          SRC_DIR="$(pwd)/src"
+          build_one() {
+            local name="$1" goarch="$2" goarm="$3"
+            echo "🔨 编译 linux-${name} (GOARCH=${goarch} GOARM=${goarm:-n/a})"
+            local out="$(pwd)/dist/mihomo-linux-${name}-${TAG}"
+            if ( cd "$SRC_DIR" && \
+                 GOOS=linux GOARCH="$goarch" GOARM="$goarm" \
+                 go build -trimpath -ldflags "-s -w -X github.com/metacubex/mihomo/constant.Version=${TAG}" \
+                 -o "$out" . ) ; then
+              echo "✅ 编译成功 $out"
+            else
+              echo "⚠ 编译失败 linux-${name}"
+            fi
+          }
+          build_one arm64 arm64 ""
+          build_one armv7 arm  7
+          build_one armv6 arm  6
+          build_one armv5 arm  5
+          COUNT=$(ls dist 2>/dev/null | wc -l)
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          echo "共编译成功 $COUNT 个二进制："
+          ls -la dist/
+          if [ "$COUNT" -lt 4 ]; then
+            git push origin --delete "refs/tags/$TAG" || true
+            echo "insufficient=true" >> "$GITHUB_OUTPUT"
+            echo "⚠ 编译产物 ($COUNT) 小于 4，删除 tag $TAG，跳过本次全部后续任务"
+          else
+            echo "✅ 编译产物 ($COUNT) 正常，继续处理"
+          fi
+
+      # ---------- 7. UPX 压缩（直接对自编译产物） ----------
+      - name: UPX 压缩
+        if: steps.check.outputs.already == '' && steps.build.outputs.insufficient != 'true'
+        run: |
+          for bin in dist/*; do
+            [ -e "$bin" ] || { echo "没有二进制可处理"; exit 0; }
+            before=$(stat -c%s "$bin")
+            upx --lzma --best "$bin" || echo "⚠  UPX 对 $(basename "$bin") 失败，保留原文件"
+            after=$(stat -c%s "$bin")
+            echo "✅ $(basename "$bin"): $before → $after bytes"
+          done
+          ls -la dist/
+
+      # ---------- 8. 将 UPX 后的二进制打包成 .gz ----------
+      - name: 去掉版本号并打包成 .gz
+        if: steps.check.outputs.already == '' && steps.build.outputs.insufficient != 'true'
+        run: |
+          TAG="${{ steps.mihomo.outputs.tag }}"
+          # ① 打包前：把 mihomo-linux-${name}-${TAG} 重命名回 mihomo-linux-${name}
+          for bin in dist/*; do
+            case "$bin" in
+              *.gz) continue ;;
+            esac
+            [ -e "$bin" ] || continue
+            base=$(basename "$bin")
+            # 仅当名字里带 "-${TAG}" 时才去掉它，避免误伤 version.txt 等
+            case "$base" in
+              *-"${TAG}")
+                new="${base%-${TAG}}"
+                mv -f "dist/$base" "dist/$new"
+                echo "🔁 重命名 $base → $new"
+                ;;
+            esac
+          done
+          # ② 压缩成 .gz（此时已不含版本号）
+          for bin in dist/*; do
+            [ -e "$bin" ] || { echo "没有文件可打包"; exit 0; }
+            case "$bin" in
+              *.gz) continue ;;          # 跳过已是 .gz 的
+            esac
+            echo "📦 压缩 $bin → ${bin}-${TAG}.gz"
+            gzip -9 -c "$bin" > "${bin}-${TAG}.gz"
+            rm -f "$bin"                 # 删除原文件，release 里只留 .gz
+            echo "✅ $(basename "$bin-${TAG}").gz : $(stat -c%s "${bin}-${TAG}.gz") bytes"
+          done
+          echo "打包后 dist/ 内容："
+          ls -la dist/
+
+      # ---------- 9. 生成 version.txt ----------
+      - name: 生成 version.txt
+        if: steps.check.outputs.already == '' && steps.build.outputs.insufficient != 'true'
+        run: |
+          TAG="${{ steps.mihomo.outputs.tag }}"
+          # 简单一行版本号；如需更丰富可自行追加
+          printf '%s\n' "$TAG" > dist/version.txt
+          echo "✅ 已生成 version.txt:"
+          cat dist/version.txt
+
+      # ---------- 10. 上传 .gz 压缩包到 release ----------
+      - name: 上传 .gz 压缩包到 release
+        if: steps.check.outputs.already == '' && steps.build.outputs.insufficient != 'true'
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ steps.mihomo.outputs.tag }}
+          name: ${{ steps.mihomo.outputs.tag }}
+          body: |
+            基于 [mihomo ${{ steps.mihomo.outputs.tag }}](https://github.com/metacubex/mihomo/releases/tag/${{ steps.mihomo.outputs.tag }}) linux-arm 二进制 UPX 。
+            - 平台：linux-arm（arm64 / armv5 / armv6 / armv7）
+            - 处理：UPX `--lzma` `--best`
+            - 上传格式：.gz 压缩包
+          files: dist/*
+          make_latest: false
