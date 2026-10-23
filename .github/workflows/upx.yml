@@ -2,8 +2,8 @@ name: UPX Compress mihomo (linux-arm)
 
 on:
   workflow_dispatch:              # 手动触发
-  schedule:
-    - cron: '0 8 * * *'       # 定时触发：每天 UTC 时间 8:00 运行（即北京时间每天下午 16:00）  
+#  schedule:
+#    - cron: '0 8 * * *'       # 定时触发：每天 UTC 时间 8:00 运行（即北京时间每天下午 16:00）  
 
 permissions:
   contents: write
