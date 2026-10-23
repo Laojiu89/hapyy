@@ -158,10 +158,26 @@ jobs:
           ls -la dist/
 
       # ---------- 8. 将 UPX 后的二进制打包成 .gz ----------
-      - name: 保留版本号并打包成 .gz
+      - name: 去掉版本号并打包成 .gz
         if: steps.check.outputs.already == '' && steps.build.outputs.insufficient != 'true'
         run: |
           TAG="${{ steps.mihomo.outputs.tag }}"
+          # ① 打包前：把 mihomo-linux-${name}-${TAG} 重命名回 mihomo-linux-${name}
+          for bin in dist/*; do
+            case "$bin" in
+              *.gz) continue ;;
+            esac
+            [ -e "$bin" ] || continue
+            base=$(basename "$bin")
+            # 仅当名字里带 "-${TAG}" 时才去掉它，避免误伤 version.txt 等
+            case "$base" in
+              *-"${TAG}")
+                new="${base%-${TAG}}"
+                mv -f "dist/$base" "dist/$new"
+                echo "🔁 重命名 $base → $new"
+                ;;
+            esac
+          done
           # ② 压缩成 .gz（此时已不含版本号）
           for bin in dist/*; do
             [ -e "$bin" ] || { echo "没有文件可打包"; exit 0; }
