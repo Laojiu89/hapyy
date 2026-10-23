@@ -19,7 +19,20 @@ jobs:
 
       - name: 安装工具 (jq / upx / gzip)
         run: |
-          sudo apt-get install -y jq upx gzip || { sudo apt-get update && sudo apt-get install -y jq upx gzip; }
+          packages="jq upx-ucl gzip"
+          missing=""
+          remissing=""
+          for p in $packages; do
+            dpkg -s "$p" >/dev/null 2>&1 || missing="$missing $p"
+          done
+          if [ -n "$missing" ]; then
+            for p in $missing; do
+              sudo apt-get install -y $p || remissing="$remissing $p"
+            done
+          fi
+          if [ -n "$remissing" ]; then
+            sudo apt-get update && sudo apt-get install -y $remissing;
+          fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
