@@ -83,9 +83,6 @@ Talkatone = select,默认代理,美国手动节点,美国自动策略,img-url = 
 FINAL,漏网之鱼
 
 [Remote Rule]
-https://adrules.top/adrules.list, policy=REJECT, tag=AD, enabled=true
-https://github.com/Moli-X/Tool/raw/X/Loon/Rules/Reject.list, policy=REJECT, tag=广告列表, enabled=true
-https://rule.kelee.one/Loon/Lan.lsr, policy=DIRECT, tag=国内局域网, enabled=true
 https://kelee.one/Tool/Loon/Lsr/SpeedtestInternational.lsr, policy=Speedtest, tag=Speedtest, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/GitHub/GitHub.list, policy=GitHub, tag=GitHub, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Cloudflare/Cloudflare.list, policy=Cloudflare, tag=Cloudflare, enabled=true
@@ -102,6 +99,7 @@ https://rule.kelee.one/Loon/OpenAI.lsr, policy=ChatGPT, tag=ChatGPT, enabled=tru
 https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy=人工智能, tag=AI.lsr, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Google/Google.list, policy=Google, tag=Google分流, enabled=true
 https://rule.kelee.one/Loon/Proxy.lsr, policy=国外网站, tag=Proxy, enabled=true
+https://rule.kelee.one/Loon/Lan.lsr, policy=DIRECT, tag=国内局域网, enabled=true
 https://rule.kelee.one/Loon/ChinaMax.lsr, policy=DIRECT, tag=国内域名, enabled=true
 https://rule.kelee.one/Loon/ChinaASN.lsr, policy=DIRECT, tag=国内ASN, enabled=true
 https://kelee.one/Tool/Loon/Lsr/REGION_SPLITTER.lsr, policy=DIRECT, tag=geoip, enabled=true
