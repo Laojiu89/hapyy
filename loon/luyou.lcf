@@ -111,7 +111,6 @@ IP-CIDR6,fd6c:91f3:2b7a::/48,DIRECT
 FINAL,漏网之鱼
 
 [Remote Rule]
-https://rule.kelee.one/Loon/Lan.lsr, policy=DIRECT, tag=国内局域网, enabled=true
 https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Surge.list, policy=REJECT, tag=秋风广告规则, enabled=true
 https://kelee.one/Tool/Loon/Lsr/SpeedtestInternational.lsr, policy=Speedtest, tag=Speedtest, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/GitHub/GitHub.list, policy=GitHub, tag=GitHub, enabled=true
@@ -130,6 +129,7 @@ https://rule.kelee.one/Loon/OpenAI.lsr, policy=ChatGPT, tag=ChatGPT, enabled=tru
 https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy=人工智能, tag=AI.lsr, enabled=true
 https://rule.kelee.one/Loon/Google.lsr, policy=Google, tag=Google, enabled=true
 https://rule.kelee.one/Loon/Proxy.lsr, policy=国外网站, tag=Proxy, enabled=true
+https://rule.kelee.one/Loon/Lan.lsr, policy=DIRECT, tag=国内局域网, enabled=true
 https://rule.kelee.one/Loon/ChinaMax.lsr, policy=DIRECT, tag=国内域名, enabled=true
 https://rule.kelee.one/Loon/ChinaASN.lsr, policy=DIRECT, tag=国内ASN, enabled=true
 https://kelee.one/Tool/Loon/Lsr/REGION_SPLITTER.lsr, policy=DIRECT, tag=geoip, enabled=true
